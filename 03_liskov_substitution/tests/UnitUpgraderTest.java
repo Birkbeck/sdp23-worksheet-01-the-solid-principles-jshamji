@@ -7,7 +7,7 @@ public class UnitUpgraderTest {
     public void testUpgraderIncreasesSquareFootageOfPenthouse() {
         PenthouseSuite penthouse = new PenthouseSuite();
         penthouse.setSquareFootage(1500);
-        UnitUpgrader upgrader = new UnitUpgrader();
+        UnitUpgraderWithBedrooms upgrader = new UnitUpgraderWithBedrooms();
         upgrader.upgrade(penthouse);
 
         assertEquals(1540, penthouse.squareFootage);
@@ -16,7 +16,7 @@ public class UnitUpgraderTest {
     @Test
     public void testUpgraderAddsBedroomToApartment() {
         PenthouseSuite penthouse = new PenthouseSuite();
-        UnitUpgrader upgrader = new UnitUpgrader();
+        UnitUpgraderWithBedrooms upgrader = new UnitUpgraderWithBedrooms();
         upgrader.upgrade(penthouse);
 
         assertEquals(5, penthouse.numberOfBedrooms);
@@ -26,18 +26,20 @@ public class UnitUpgraderTest {
     public void testUpgraderIncreasesSquareFootageOfStudio() {
         Studio studio = new Studio();
         studio.setSquareFootage(550);
-        UnitUpgrader upgrader = new UnitUpgrader();
+        UnitUpgraderWithoutBedrooms upgrader = new UnitUpgraderWithoutBedrooms();
         upgrader.upgrade(studio);
 
         assertEquals(590, studio.squareFootage);
     }
 
-    @Test
-    public void testUpgraderDoesntAddBedroomToStudios() {
-        Studio studio = new Studio();
-        UnitUpgrader upgrader = new UnitUpgrader();
-        upgrader.upgrade(studio);
+//    Remove the following test case as Studio class does not include numberOfBedrooms instance variable
 
-        assertEquals(0, studio.numberOfBedrooms);
-    }
+//    @Test
+//    public void testUpgraderDoesntAddBedroomToStudios() {
+//        Studio studio = new Studio();
+//        UnitUpgrader upgrader = new UnitUpgrader();
+//        upgrader.upgrade(studio);
+//
+//        assertEquals(0, studio.numberOfBedrooms);
+//    }
 }
