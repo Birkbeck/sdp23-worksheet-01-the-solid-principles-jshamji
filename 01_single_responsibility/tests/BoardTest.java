@@ -50,7 +50,7 @@ public class BoardTest {
 
     @Test
     public void testPrintsBoardToConsole() {
-        Board board = new Board();
+        PrintBoard board = new PrintBoard();
         System.setOut(new PrintStream(outContent));
         board.display();
         assertEquals("0 | 1 | 2\n3 | 4 | 5\n6 | 7 | 8", outContent.toString());
